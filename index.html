@@ -13,102 +13,373 @@
             --accent: #0056b3;
             --border: #e0e0e0;
         }
-        * { box-sizing: border-box; }
-        body {
-            margin: 0; font-family: sans-serif;
-            background: var(--bg); color: var(--text-main); line-height: 1.6;
+        * {
+            box-sizing: border-box;
         }
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .page { max-width: 1100px; margin: auto; padding: 16px; }
-        .top-lang { text-align: right; margin-bottom: 8px; }
-        .layout { display: grid; grid-template-columns: 280px 1fr; gap: 20px; }
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+        .top-lang {
+            text-align: right;
+            font-size: .9rem;
+            margin-bottom: 8px;
+        }
+        .top-lang a {
+            margin-left: 8px;
+        }
+        .layout {
+            display: grid;
+            grid-template-columns: 280px minmax(0, 1fr);
+            gap: 20px;
+        }
         .sidebar {
-            background: var(--card-bg); padding: 20px; border-radius: 12px;
+            background: var(--card-bg);
             border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
         }
         .avatar {
-            width: 140px; height: 140px; border-radius: 50%; overflow: hidden;
-            margin: 0 auto 16px auto; background: #ddd;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 auto 16px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .8rem;
+            color: var(--text-muted);
+            overflow: hidden;
         }
-        .avatar img { width: 100%; height: 100%; object-fit: cover; }
-        .name { text-align: center; font-size: 1.4rem; font-weight: bold; }
-        .title, .location { text-align: center; color: var(--text-muted); font-size: .9rem; }
-        .contact-list, .link-list { list-style: none; padding: 0; font-size: .9rem; }
-        .link-list span { font-weight: bold; }
-        .main { display: flex; flex-direction: column; gap: 20px; }
+        .name {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .title {
+            text-align: center;
+            font-size: .95rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        .location {
+            text-align: center;
+            font-size: .9rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 12px 0;
+            font-size: .9rem;
+        }
+        .contact-list li {
+            margin-bottom: 4px;
+        }
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0 0;
+            font-size: .9rem;
+        }
+        .link-list li {
+            margin-bottom: 4px;
+        }
+        .link-list span {
+            font-weight: 600;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
         .card {
-            background: var(--card-bg); padding: 20px; border-radius: 12px;
+            background: var(--card-bg);
+            border-radius: 12px;
             border: 1px solid var(--border);
+            padding: 20px;
         }
-        .card h1, .card h2 { margin-top: 0; }
-        .item-list { list-style: none; padding: 0; }
-        .footer { text-align: center; margin-top: 20px; color: var(--text-muted); font-size: .8rem; }
-        @media(max-width:800px){ .layout{ grid-template-columns:1fr; } .sidebar{order:-1;} }
+        .card h1,
+        .card h2 {
+            margin-top: 0;
+        }
+        .card h1 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+        .card h2 {
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+        }
+        .small-note {
+            font-size: .9rem;
+            color: var(--text-muted);
+        }
+        .item-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: .95rem;
+        }
+        .item-list li {
+            margin-bottom: 10px;
+        }
+        .item-title {
+            font-weight: 600;
+        }
+        .item-meta {
+            font-size: .85rem;
+            color: var(--text-muted);
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: .8rem;
+            border-radius: 999px;
+            background: #eef3ff;
+            margin-left: 4px;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: .8rem;
+            color: var(--text-muted);
+        }
+        @media (max-width: 800px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                order: -1;
+            }
+        }
     </style>
 </head>
 <body>
 <div class="page">
 
-    <!-- Language switch -->
+    <!-- Top navigation -->
     <div class="top-lang">
-        <a href="index.html">English</a> | 
-        <a href="fa.html">فارسی</a>
+        <a href="#about">About</a> ·
+        <a href="#interests">Research</a> ·
+        <a href="#publications">Publications</a> ·
+        <a href="#languages">Languages</a> ·
+        <a href="#contact">Contact</a>
     </div>
 
     <div class="layout">
-        <!-- Sidebar -->
+        <!-- LEFT: sidebar -->
         <aside class="sidebar">
             <div class="avatar">
-                <img src="profile.jpg" alt="My Photo">
+                <img src="profile.jpg" alt="My Photo"
+                     style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
             </div>
 
             <div class="name">Mohammad Bigonah</div>
             <div class="title">PhD Candidate / Researcher</div>
             <div class="location">
                 Key Laboratory of Smart Prevention and Mitigation of Civil Engineering Disasters,<br>
-                Harbin Institute of Technology, China
+                Harbin Institute of Technology, Harbin, China
             </div>
 
             <ul class="contact-list">
                 <li><strong>Email:</strong> bigonahhit (at) gmail.com</li>
-                <li><strong>GitHub:</strong> <a href="https://github.com/Mohammadbigonah" target="_blank">github.com/Mohammadbigonah</a></li>
+                <li><strong>GitHub:</strong>
+                    <a href="https://github.com/Mohammadbigonah" target="_blank">github.com/Mohammadbigonah</a>
+                </li>
             </ul>
 
             <ul class="link-list">
                 <li><span>Profiles:</span></li>
-                <li>• <a href="https://scholar.google.com/citations?user=Jcs-EDoAAAAJ" target="_blank">Google Scholar</a></li>
-                <li>• <a href="https://www.researchgate.net/profile/Mohammad-Bigonah" target="_blank">ResearchGate</a></li>
-                <li>• <a href="https://www.linkedin.com/in/seyedmohammadbigonah" target="_blank">LinkedIn</a></li>
+                <li>• <a href="https://scholar.google.com/citations?user=Jcs-EDoAAAAJ&hl=en"
+                      target="_blank">Google Scholar</a></li>
+                <li>• <a href="https://www.researchgate.net/profile/Mohammad-Bigonah"
+                      target="_blank">ResearchGate</a></li>
+                <li>• <a href="https://www.linkedin.com/in/seyedmohammadbigonah/?skipRedirect=true"
+                      target="_blank">LinkedIn</a></li>
             </ul>
         </aside>
 
-        <!-- Main content -->
+        <!-- RIGHT: main content -->
         <main class="main">
 
             <!-- About -->
-            <section class="card">
+            <section class="card" id="about">
                 <h1>About me</h1>
                 <p>
-                    PhD Candidate (Disaster Prevention & Mitigation) at Harbin Institute of Technology 🇨🇳.<br>
-                    MSc in Earthquake Engineering from Iran University of Science and Technology 🇮🇷.
+                    PhD Candidate (Disaster Prevention &amp; Mitigation), Harbin Institute of Technology 🇨🇳.<br>
+                    MSc in Earthquake Engineering, Iran University of Science and Technology 🇮🇷.
+                </p>
+                <p>
+                    My research focuses on the behavior and performance of reinforced concrete (RC) structures under
+                    extreme events, with an emphasis on progressive collapse, retrofitting strategies, and resilience of
+                    structures and cities.
                 </p>
             </section>
 
             <!-- Research Interests -->
-            <section class="card">
+            <section class="card" id="interests">
                 <h2>Research Interests</h2>
                 <ul class="item-list">
                     <li>• Disaster prevention and mitigation</li>
-                    <li>• Progressive collapse</li>
-                    <li>• Post-earthquake assessment</li>
-                    <li>• Resilient cities</li>
+                    <li>• Progressive collapse of structures</li>
+                    <li>• Post-earthquake damage and recovery</li>
+                    <li>• Resilient cities and communities</li>
                     <li>• Performance-based seismic design</li>
                 </ul>
             </section>
 
+            <!-- Opportunities -->
+            <section class="card" id="opportunities">
+                <h2>Opportunities</h2>
+                <p>
+                    I am open to collaboration with motivated students and researchers on topics related to
+                    structural analysis, progressive collapse, and risk assessment. If you are interested,
+                    feel free to contact me with your CV and a brief description of your background and research interests.
+                </p>
+            </section>
+
+            <!-- News -->
+            <section class="card" id="news">
+                <h2>News</h2>
+                <ul class="item-list">
+                    <li>
+                        <span class="item-meta">2025</span> –
+                        <span>
+                            Co-authored the paper <em>"Impact of structure height on retrofitted RC structures for progressive collapse prevention"</em>.
+                        </span>
+                    </li>
+                    <li>
+                        <span class="item-meta">2024</span> –
+                        <span>
+                            Published the paper <em>"Automatic evaluation of progressive collapse performance of braced frames"</em>
+                            in <em>Engineering Failure Analysis</em>.
+                        </span>
+                    </li>
+                    <li>
+                        <span class="item-meta">2022</span> –
+                        <span>
+                            Published the paper <em>"Assessment of different retrofitting methods on structural performance of RC buildings against progressive collapse"</em>
+                            in <em>Applied Sciences</em>.
+                        </span>
+                    </li>
+                    <li>
+                        <span class="item-meta">2018–2020</span> –
+                        <span>
+                            Several publications on progressive collapse, infill wall effects, corrosion, and structural performance.
+                        </span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Publications -->
+            <section class="card" id="publications">
+                <h2>Publications (selected)</h2>
+                <ul class="item-list">
+                    <li>
+                        <div class="item-title">
+                            Impact of structure height on retrofitted RC structures for progressive collapse prevention
+                        </div>
+                        <div class="item-meta">
+                            N.M. Saeed, B.H. Ali, M. Bigonah, A.S. Jamal, H.Z. Hassan,<br>
+                            <i>Journal of Building Pathology and Rehabilitation</i>, 2025.
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="item-title">
+                            Automatic evaluation of progressive collapse performance of braced frames
+                        </div>
+                        <div class="item-meta">
+                            M. Bigonah, B.H. Ali, P. Rashed, S. Li,<br>
+                            <i>Engineering Failure Analysis</i>, 2024.
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="item-title">
+                            Assessment of different retrofitting methods on structural performance of RC buildings against progressive collapse
+                        </div>
+                        <div class="item-meta">
+                            B.H. Ali, E. Mete Güneyisi, M. Bigonah,<br>
+                            <i>Applied Sciences</i>, 2022.
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="item-title">
+                            Performance evaluation on effects of all types of infill against the progressive collapse of reinforced concrete frames
+                        </div>
+                        <div class="item-meta">
+                            M. Bigonah, H. Soltani, M. Zabihi-Samani, M.A. Shayanfar,<br>
+                            <i>Asian Journal of Civil Engineering</i>, 2020.
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="item-title">
+                            A porous polymeric–hydroxyapatite scaffold used for femur fractures treatment: fabrication, analysis, and simulation
+                        </div>
+                        <div class="item-meta">
+                            S. Esmaeili, H. Akbari Aghdam, M. Motififard, M. Bigonah, et al.,<br>
+                            <i>European Journal of Orthopaedic Surgery &amp; Traumatology</i>, 2020.
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="item-title">
+                            Simulation and Evaluation of Corrosion Effects on the Reduction of Column Capacity
+                        </div>
+                        <div class="item-meta">
+                            M.A. Shayanfar, D. Sobhani, M. Bigonah, et al.,<br>
+                            <i>Mapta Journal of Architecture, Urbanism and Civil Engineering</i>, 2018.
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="item-title">
+                            The effectiveness investigation of new retrofitting techniques for RC frame against progressive collapse
+                        </div>
+                        <div class="item-meta">
+                            M. Shayanfar, M. Bigonah, D. Sobhani, M. Zabihi-Samani,<br>
+                            <i>Civil Engineering Journal</i>, 2018.
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="item-meta">
+                            For a complete and up-to-date list of publications, please visit my
+                            <a href="https://scholar.google.com/citations?user=Jcs-EDoAAAAJ&hl=en" target="_blank">
+                                Google Scholar profile
+                            </a>.
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
             <!-- Languages -->
-            <section class="card">
+            <section class="card" id="languages">
                 <h2>Languages</h2>
                 <ul class="item-list">
                     <li>• English</li>
@@ -117,44 +388,35 @@
                 </ul>
             </section>
 
-            <!-- Grants -->
-            <section class="card">
-                <h2>Grants & Awards</h2>
+            <!-- Grants & Awards -->
+            <section class="card" id="awards">
+                <h2>Grants &amp; Awards</h2>
                 <ul class="item-list">
-                    <li><strong>CSC Scholarship</strong> – August 2022</li>
-                </ul>
-            </section>
-
-            <!-- Publications -->
-            <section class="card">
-                <h2>Selected Publications</h2>
-
-                <ul class="item-list">
-
                     <li>
-                        <strong>Automatic evaluation of progressive collapse performance of braced frames</strong><br>
-                        Engineering Failure Analysis, 2024<br>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S1350630724009385" target="_blank">Journal link</a>
+                        <div class="item-title">
+                            CSC Scholarship
+                        </div>
+                        <div class="item-meta">
+                            China Scholarship Council – Awarded August 2022.
+                        </div>
                     </li>
-
-                    <li>
-                        <strong>The Effectiveness Investigation of New Retrofitting Techniques for RC Frame against Progressive Collapse</strong><br>
-                        Civil Engineering Journal, 2018<br>
-                        <a href="https://civilejournal.org/index.php/cej/article/view/825" target="_blank">Journal link</a>
-                    </li>
-
                 </ul>
             </section>
 
             <!-- Contact -->
-            <section class="card">
+            <section class="card" id="contact">
                 <h2>Contact</h2>
                 <p>
-                    Email: <strong>bigonahhit (at) gmail.com</strong>
+                    Email is the best way to reach me:
+                    <br>
+                    <strong>bigonahhit (at) gmail.com</strong><br>
+                    (replace <i>(at)</i> with <i>@</i> when you send the email).
                 </p>
             </section>
 
-            <div class="footer">© 2025 Mohammad Bigonah. Built with GitHub Pages.</div>
+            <div class="footer">
+                © 2025 Mohammad Bigonah. Built with HTML &amp; GitHub Pages.
+            </div>
 
         </main>
     </div>
