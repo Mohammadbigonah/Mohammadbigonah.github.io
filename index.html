@@ -13,188 +13,62 @@
             --accent: #0056b3;
             --border: #e0e0e0;
         }
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
         body {
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: var(--bg);
-            color: var(--text-main);
-            line-height: 1.6;
+            margin: 0; font-family: sans-serif;
+            background: var(--bg); color: var(--text-main); line-height: 1.6;
         }
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .page {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 16px;
-        }
-        .top-lang {
-            text-align: right;
-            font-size: .9rem;
-            margin-bottom: 8px;
-        }
-        .top-lang a {
-            margin-left: 8px;
-        }
-        .layout {
-            display: grid;
-            grid-template-columns: 280px minmax(0, 1fr);
-            gap: 20px;
-        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .page { max-width: 1100px; margin: auto; padding: 16px; }
+        .top-lang { text-align: right; margin-bottom: 8px; }
+        .layout { display: grid; grid-template-columns: 280px 1fr; gap: 20px; }
         .sidebar {
-            background: var(--card-bg);
+            background: var(--card-bg); padding: 20px; border-radius: 12px;
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
         }
         .avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            background: #ddd;
-            margin: 0 auto 16px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: .8rem;
-            color: var(--text-muted);
+            width: 140px; height: 140px; border-radius: 50%; overflow: hidden;
+            margin: 0 auto 16px auto; background: #ddd;
         }
-        .name {
-            text-align: center;
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        .title {
-            text-align: center;
-            font-size: .95rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
-        .location {
-            text-align: center;
-            font-size: .9rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
-        .contact-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 12px 0;
-            font-size: .9rem;
-        }
-        .contact-list li {
-            margin-bottom: 4px;
-        }
-        .link-list {
-            list-style: none;
-            padding: 0;
-            margin: 12px 0 0 0;
-            font-size: .9rem;
-        }
-        .link-list li {
-            margin-bottom: 4px;
-        }
-        .link-list span {
-            font-weight: 600;
-        }
-
-        .main {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+        .avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .name { text-align: center; font-size: 1.4rem; font-weight: bold; }
+        .title, .location { text-align: center; color: var(--text-muted); font-size: .9rem; }
+        .contact-list, .link-list { list-style: none; padding: 0; font-size: .9rem; }
+        .link-list span { font-weight: bold; }
+        .main { display: flex; flex-direction: column; gap: 20px; }
         .card {
-            background: var(--card-bg);
-            border-radius: 12px;
+            background: var(--card-bg); padding: 20px; border-radius: 12px;
             border: 1px solid var(--border);
-            padding: 20px;
         }
-        .card h1,
-        .card h2 {
-            margin-top: 0;
-        }
-        .card h1 {
-            font-size: 1.6rem;
-            margin-bottom: 8px;
-        }
-        .card h2 {
-            font-size: 1.2rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 4px;
-            margin-bottom: 10px;
-        }
-        .small-note {
-            font-size: .9rem;
-            color: var(--text-muted);
-        }
-        .item-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-size: .95rem;
-        }
-        .item-list li {
-            margin-bottom: 10px;
-        }
-        .item-title {
-            font-weight: 600;
-        }
-        .item-meta {
-            font-size: .85rem;
-            color: var(--text-muted);
-        }
-        .badge {
-            display: inline-block;
-            padding: 2px 8px;
-            font-size: .8rem;
-            border-radius: 999px;
-            background: #eef3ff;
-            margin-left: 4px;
-        }
-        .footer {
-            margin-top: 20px;
-            text-align: center;
-            font-size: .8rem;
-            color: var(--text-muted);
-        }
-        @media (max-width: 800px) {
-            .layout {
-                grid-template-columns: 1fr;
-            }
-            .sidebar {
-                order: -1;
-            }
-        }
+        .card h1, .card h2 { margin-top: 0; }
+        .item-list { list-style: none; padding: 0; }
+        .footer { text-align: center; margin-top: 20px; color: var(--text-muted); font-size: .8rem; }
+        @media(max-width:800px){ .layout{ grid-template-columns:1fr; } .sidebar{order:-1;} }
     </style>
 </head>
 <body>
 <div class="page">
 
-    <!-- Language switch (optional) -->
+    <!-- Language switch -->
     <div class="top-lang">
-        Language:
-        <a href="#">English</a> |
-        <a href="#">فارسی (coming soon)</a>
+        <a href="index.html">English</a> | 
+        <a href="fa.html">فارسی</a>
     </div>
 
     <div class="layout">
-        <!-- LEFT: sidebar -->
+        <!-- Sidebar -->
         <aside class="sidebar">
-           <div class="avatar">
-                <img src="profile.jpg" alt="My Photo" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
+            <div class="avatar">
+                <img src="profile.jpg" alt="My Photo">
             </div>
 
             <div class="name">Mohammad Bigonah</div>
             <div class="title">PhD Candidate / Researcher</div>
-            <div class="location">[Key Lab of Smart Prevention and Mitigation of Civil Engineering Disasters of the Ministry of Industry and Information Technology], [Harbin Institute of Technology]<br>[Harbin, China]</div>
+            <div class="location">
+                Key Laboratory of Smart Prevention and Mitigation of Civil Engineering Disasters,<br>
+                Harbin Institute of Technology, China
+            </div>
 
             <ul class="contact-list">
                 <li><strong>Email:</strong> bigonahhit (at) gmail.com</li>
@@ -203,139 +77,84 @@
 
             <ul class="link-list">
                 <li><span>Profiles:</span></li>
-                <li>• <a href="https://scholar.google.com/citations?user=Jcs-EDoAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
+                <li>• <a href="https://scholar.google.com/citations?user=Jcs-EDoAAAAJ" target="_blank">Google Scholar</a></li>
                 <li>• <a href="https://www.researchgate.net/profile/Mohammad-Bigonah" target="_blank">ResearchGate</a></li>
-                <li>• <a href="https://www.linkedin.com/in/seyedmohammadbigonah/?skipRedirect=true" target="_blank">LinkedIn</a></li>
+                <li>• <a href="https://www.linkedin.com/in/seyedmohammadbigonah" target="_blank">LinkedIn</a></li>
             </ul>
         </aside>
 
-        <!-- RIGHT: main content -->
+        <!-- Main content -->
         <main class="main">
 
             <!-- About -->
-            <section class="card" id="about">
+            <section class="card">
                 <h1>About me</h1>
                 <p>
-                    PhD Candidate (Disaster Prevention & Mitigation), Harbin Institute of Technology 🇨🇳.  
-                    MSc in Earthquake Engineering, Iran University of Science and Technology 🇮🇷.
-                </p> 
+                    PhD Candidate (Disaster Prevention & Mitigation) at Harbin Institute of Technology 🇨🇳.<br>
+                    MSc in Earthquake Engineering from Iran University of Science and Technology 🇮🇷.
+                </p>
             </section>
 
             <!-- Research Interests -->
-            <section class="card" id="interests">
+            <section class="card">
                 <h2>Research Interests</h2>
                 <ul class="item-list">
                     <li>• Disaster prevention and mitigation</li>
                     <li>• Progressive collapse</li>
-                    <li>• Post earthquake</li>
-                    <li>• Resilience City</li>
-                    <li>• Performance based design</li>
+                    <li>• Post-earthquake assessment</li>
+                    <li>• Resilient cities</li>
+                    <li>• Performance-based seismic design</li>
                 </ul>
             </section>
 
-            <!-- Join us / Opportunities -->
-            <section class="card" id="opportunities">
-                <h2>Opportunities</h2>
-                <p class="small-note">
-                    (Optional) If you supervise students or collaborate on projects, you can write something like:
-                </p>
-                <p>
-                    I am happy to collaborate with motivated students on topics related to structural analysis,
-                    simulation, and risk assessment. If you are interested, feel free to contact me with your CV
-                    and a short description of your background.
-                </p>
+            <!-- Languages -->
+            <section class="card">
+                <h2>Languages</h2>
+                <ul class="item-list">
+                    <li>• English</li>
+                    <li>• Persian</li>
+                    <li>• Chinese</li>
+                </ul>
             </section>
 
-            <!-- News -->
-            <section class="card" id="news">
-                <h2>News</h2>
+            <!-- Grants -->
+            <section class="card">
+                <h2>Grants & Awards</h2>
                 <ul class="item-list">
-                    <li>
-                        <span class="item-meta">2025-11</span> –
-                        <span>Started building my academic homepage using GitHub Pages.</span>
-                    </li>
-                    <li>
-                        <span class="item-meta">2025-10</span> –
-                        <span>Submitted a paper on [topic] to [journal / conference].</span>
-                    </li>
-                    <li>
-                        <span class="item-meta">2025-06</span> –
-                        <span>Completed project on [short description of your project].</span>
-                    </li>
+                    <li><strong>CSC Scholarship</strong> – August 2022</li>
                 </ul>
             </section>
 
             <!-- Publications -->
-            <section class="card" id="publications">
-                <h2>Recent Publications / Projects</h2>
-                <ul class="item-list">
-                    <li>
-                        <div class="item-title">
-                            [Title of your paper or thesis]
-                        </div>
-                        <div class="item-meta">
-                            Your Name, Co-authors, <i>Journal / Conference</i>, Year.
-                        </div>
-                        <div>
-                            <a href="#" target="_blank">PDF / Link</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item-title">
-                            Numerical study on [short title of your project]
-                        </div>
-                        <div class="item-meta">
-                            Coursework / independent project, [University], Year.
-                        </div>
-                        <div>
-                            <a href="https://github.com/Mohammadbigonah" target="_blank">Code / repository</a>
-                        </div>
-                    </li>
-                </ul>
-            </section>
+            <section class="card">
+                <h2>Selected Publications</h2>
 
-            <!-- Talks -->
-            <section class="card" id="talks">
-                <h2>Talks & Presentations</h2>
                 <ul class="item-list">
-                    <li>
-                        <div class="item-title">
-                            [Title of your presentation]
-                        </div>
-                        <div class="item-meta">
-                            [Event / Course], [Place], [Date].
-                        </div>
-                    </li>
-                </ul>
-            </section>
 
-            <!-- Teaching -->
-            <section class="card" id="teaching">
-                <h2>Teaching / Academic Activities</h2>
-                <ul class="item-list">
                     <li>
-                        Teaching assistant for [Course name], [Department, University], [Semester, Year].
+                        <strong>Automatic evaluation of progressive collapse performance of braced frames</strong><br>
+                        Engineering Failure Analysis, 2024<br>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S1350630724009385" target="_blank">Journal link</a>
                     </li>
+
                     <li>
-                        Supervision / mentoring of undergraduate projects in [topic].
+                        <strong>The Effectiveness Investigation of New Retrofitting Techniques for RC Frame against Progressive Collapse</strong><br>
+                        Civil Engineering Journal, 2018<br>
+                        <a href="https://civilejournal.org/index.php/cej/article/view/825" target="_blank">Journal link</a>
                     </li>
+
                 </ul>
             </section>
 
             <!-- Contact -->
-            <section class="card" id="contact">
+            <section class="card">
                 <h2>Contact</h2>
                 <p>
-                    Email is the best way to reach me:
-                    <br>
-                    <strong>bigonahhit (at) gmail.com</strong>  
-                    (replace <i>(at)</i> with <i>@</i> when you send the email).
+                    Email: <strong>bigonahhit (at) gmail.com</strong>
                 </p>
             </section>
 
-            <div class="footer">
-                © 2025 Mohammad Bigonah. Built with HTML &amp; GitHub Pages.
-            </div>
+            <div class="footer">© 2025 Mohammad Bigonah. Built with GitHub Pages.</div>
 
         </main>
     </div>
