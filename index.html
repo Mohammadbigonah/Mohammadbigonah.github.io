@@ -4,16 +4,6 @@
     <meta charset="UTF-8">
     <title>Mohammad Bigonah | Personal Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Font Awesome for icons -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-1hctkNvztNFVQVw1Gc7YCOUMIqFZ3VAb9YSEuxsjjXNMTvEihQ/HVbUaz2QmiVjCwXTlzAIXazhbug+DUFc1mA=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    />
-
     <style>
         :root {
             --bg: #f7f7f7;
@@ -45,8 +35,6 @@
             margin: 0 auto;
             padding: 16px;
         }
-
-        /* Top navigation */
         .top-lang {
             text-align: right;
             font-size: .9rem;
@@ -55,7 +43,6 @@
         .top-lang a {
             margin-left: 8px;
         }
-
         .layout {
             display: grid;
             grid-template-columns: 280px minmax(0, 1fr);
@@ -98,6 +85,11 @@
             color: var(--text-muted);
             margin-bottom: 12px;
         }
+        /* آیکن لوکیشن قبل از متن */
+        .location::before {
+            content: "📍 ";
+        }
+
         .contact-list {
             list-style: none;
             padding: 0;
@@ -114,10 +106,27 @@
             font-size: .9rem;
         }
         .link-list li {
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .link-list span {
             font-weight: 600;
+        }
+
+        /* استایل آیکن‌های دایره‌ای */
+        .icon-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.7rem;
+            flex-shrink: 0;
         }
 
         .main {
@@ -179,12 +188,6 @@
             font-size: .8rem;
             color: var(--text-muted);
         }
-
-        /* Icon styling */
-        .icon {
-            margin-right: 6px;
-        }
-
         @media (max-width: 800px) {
             .layout {
                 grid-template-columns: 1fr;
@@ -218,19 +221,13 @@
             <div class="name">Mohammad Bigonah</div>
             <div class="title">PhD Candidate / Researcher</div>
             <div class="location">
-                <i class="fa-solid fa-location-dot icon"></i>
                 Key Laboratory of Smart Prevention and Mitigation of Civil Engineering Disasters,<br>
                 Harbin Institute of Technology, Harbin, China
             </div>
 
             <ul class="contact-list">
-                <li>
-                    <i class="fa-solid fa-envelope icon"></i>
-                    <strong>Email:</strong> bigonah (at) stu.hit.edu.cn
-                </li>
-                <li>
-                    <i class="fa-brands fa-github icon"></i>
-                    <strong>GitHub:</strong>
+                <li><strong>Email:</strong> bigonah (at) stu.hit.edu.cn</li>
+                <li><strong>GitHub:</strong>
                     <a href="https://github.com/Mohammadbigonah" target="_blank">github.com/Mohammadbigonah</a>
                 </li>
             </ul>
@@ -238,17 +235,17 @@
             <ul class="link-list">
                 <li><span>Profiles:</span></li>
                 <li>
-                    • <i class="fa-solid fa-graduation-cap icon"></i>
+                    <span class="icon-circle">G</span>
                     <a href="https://scholar.google.com/citations?user=Jcs-EDoAAAAJ&hl=en"
                        target="_blank">Google Scholar</a>
                 </li>
                 <li>
-                    • <i class="fa-brands fa-researchgate icon"></i>
+                    <span class="icon-circle">R</span>
                     <a href="https://www.researchgate.net/profile/Mohammad-Bigonah"
                        target="_blank">ResearchGate</a>
                 </li>
                 <li>
-                    • <i class="fa-brands fa-linkedin icon"></i>
+                    <span class="icon-circle">in</span>
                     <a href="https://www.linkedin.com/in/seyedmohammadbigonah/?skipRedirect=true"
                        target="_blank">LinkedIn</a>
                 </li>
@@ -266,10 +263,11 @@
                     MSc in Earthquake Engineering, Iran University of Science and Technology 🇮🇷.
                 </p>
                 <p>
-                    Currently, I am a PhD candidate in Civil Engineering, specializing in Disaster Prevention, at Harbin Institute of Technology in Harbin, China.
-                    Under the guidance of Professor Shuang Li, I am conducting research on seismic structural damage identification
-                    and performance prediction based on artificial intelligence. Additionally, I am actively exploring methods
-                    to enhance the life-long resilience of structures and engineering systems.
+                    Currently, I am a PhD candidate in Civil Engineering, specializing in Disaster Prevention, at Harbin
+                    Institute of Technology in Harbin, China. Under the guidance of Professor Shuang Li, I am conducting
+                    research on seismic structural damage identification and performance prediction based on artificial
+                    intelligence. Additionally, I am actively exploring methods to enhance the life-long resilience of
+                    structures and engineering systems.
                 </p>
             </section>
 
