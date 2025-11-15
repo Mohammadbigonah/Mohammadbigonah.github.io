@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>Mohammad Bigonah | Personal Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome for icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-1hctkNvztNFVQVw1Gc7YCOUMIqFZ3VAb9YSEuxsjjXNMTvEihQ/HVbUaz2QmiVjCwXTlzAIXazhbug+DUFc1mA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+
     <style>
         :root {
             --bg: #f7f7f7;
@@ -35,6 +45,8 @@
             margin: 0 auto;
             padding: 16px;
         }
+
+        /* Top navigation */
         .top-lang {
             text-align: right;
             font-size: .9rem;
@@ -43,6 +55,7 @@
         .top-lang a {
             margin-left: 8px;
         }
+
         .layout {
             display: grid;
             grid-template-columns: 280px minmax(0, 1fr);
@@ -166,6 +179,12 @@
             font-size: .8rem;
             color: var(--text-muted);
         }
+
+        /* Icon styling */
+        .icon {
+            margin-right: 6px;
+        }
+
         @media (max-width: 800px) {
             .layout {
                 grid-template-columns: 1fr;
@@ -199,25 +218,40 @@
             <div class="name">Mohammad Bigonah</div>
             <div class="title">PhD Candidate / Researcher</div>
             <div class="location">
+                <i class="fa-solid fa-location-dot icon"></i>
                 Key Laboratory of Smart Prevention and Mitigation of Civil Engineering Disasters,<br>
                 Harbin Institute of Technology, Harbin, China
             </div>
 
             <ul class="contact-list">
-                <li><strong>Email:</strong> bigonah (at) stu.hit.edu.cn</li>
-                <li><strong>GitHub:</strong>
+                <li>
+                    <i class="fa-solid fa-envelope icon"></i>
+                    <strong>Email:</strong> bigonah (at) stu.hit.edu.cn
+                </li>
+                <li>
+                    <i class="fa-brands fa-github icon"></i>
+                    <strong>GitHub:</strong>
                     <a href="https://github.com/Mohammadbigonah" target="_blank">github.com/Mohammadbigonah</a>
                 </li>
             </ul>
 
             <ul class="link-list">
                 <li><span>Profiles:</span></li>
-                <li>• <a href="https://scholar.google.com/citations?user=Jcs-EDoAAAAJ&hl=en"
-                      target="_blank">Google Scholar</a></li>
-                <li>• <a href="https://www.researchgate.net/profile/Mohammad-Bigonah"
-                      target="_blank">ResearchGate</a></li>
-                <li>• <a href="https://www.linkedin.com/in/seyedmohammadbigonah/?skipRedirect=true"
-                      target="_blank">LinkedIn</a></li>
+                <li>
+                    • <i class="fa-solid fa-graduation-cap icon"></i>
+                    <a href="https://scholar.google.com/citations?user=Jcs-EDoAAAAJ&hl=en"
+                       target="_blank">Google Scholar</a>
+                </li>
+                <li>
+                    • <i class="fa-brands fa-researchgate icon"></i>
+                    <a href="https://www.researchgate.net/profile/Mohammad-Bigonah"
+                       target="_blank">ResearchGate</a>
+                </li>
+                <li>
+                    • <i class="fa-brands fa-linkedin icon"></i>
+                    <a href="https://www.linkedin.com/in/seyedmohammadbigonah/?skipRedirect=true"
+                       target="_blank">LinkedIn</a>
+                </li>
             </ul>
         </aside>
 
@@ -233,8 +267,9 @@
                 </p>
                 <p>
                     Currently, I am a PhD candidate in Civil Engineering, specializing in Disaster Prevention, at Harbin Institute of Technology in Harbin, China.
-                    Under the guidance of Professor Shuang Li, I am conducting research on seismic Structural damage identification and performance prediction Based on artificial intelligence.
-                    Additionally,I am actively exploring methods to life-long resilience of structure and engineering systems.
+                    Under the guidance of Professor Shuang Li, I am conducting research on seismic structural damage identification
+                    and performance prediction based on artificial intelligence. Additionally, I am actively exploring methods
+                    to enhance the life-long resilience of structures and engineering systems.
                 </p>
             </section>
 
@@ -244,7 +279,7 @@
                 <ul class="item-list">
                     <li>• Disaster Prevention and Mitigation</li>
                     <li>• Progressive Collapse of Structures</li>
-                    <li>• Post-Earthquake</li>
+                    <li>• Post-Earthquake Damage and Recovery</li>
                     <li>• City Earthquake Resilience</li>
                     <li>• Performance-Based Seismic Design</li>
                 </ul>
@@ -261,19 +296,17 @@
             </section>
 
             <!-- News -->
-
-        <section class="card" id="news">
-            <h2>News</h2>
-            <ul class="item-list">
-            <li>
-            <span class="item-meta">2025</span> –
-            <span>
-                Completed the resilience assessment of Tangshan city, China.
-            </span>
-            </li>
-            </ul>
-         </section>
-
+            <section class="card" id="news">
+                <h2>News</h2>
+                <ul class="item-list">
+                    <li>
+                        <span class="item-meta">2025</span> –
+                        <span>
+                            Completed the resilience assessment of Tangshan city, China.
+                        </span>
+                    </li>
+                </ul>
+            </section>
 
             <!-- Publications -->
             <section class="card" id="publications">
