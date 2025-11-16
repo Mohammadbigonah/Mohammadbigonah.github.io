@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Mohammad Bigonah | Personal Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         :root {
             --bg: #f7f7f7;
@@ -96,6 +98,9 @@
         }
         .contact-list li {
             margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .link-list {
             list-style: none;
@@ -107,7 +112,7 @@
             margin-bottom: 6px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
         .link-list span {
             font-weight: 600;
@@ -123,6 +128,10 @@
             color: #fff;
             font-size: 0.7rem;
             flex-shrink: 0;
+        }
+        .icon {
+            font-size: 1rem;
+            color: var(--accent);
         }
         .main {
             display: flex;
@@ -221,8 +230,13 @@
             </div>
 
             <ul class="contact-list">
-                <li><strong>Email:</strong> bigonah (at) stu.hit.edu.cn</li>
-                <li><strong>GitHub:</strong>
+                <li>
+                    <i class="fas fa-envelope icon"></i>
+                    <strong>Email:</strong> bigonah (at) stu.hit.edu.cn
+                </li>
+                <li>
+                    <i class="fab fa-github icon"></i>
+                    <strong>GitHub:</strong>
                     <a href="https://github.com/Mohammadbigonah" target="_blank">github.com/Mohammadbigonah</a>
                 </li>
             </ul>
@@ -254,13 +268,30 @@
             <section class="card" id="about">
                 <h1>About Me</h1>
                 <p>
-                    I am currently a PhD candidate in <strong>Disaster Prevention & Mitigation Engineering</strong> at the <strong>Harbin Institute of Technology (HIT), China</strong> 🇨🇳.<br>
-                    Prior to my PhD studies, I completed my MSc in <strong>Earthquake Engineering</strong> from the <strong>Iran University of Science and Technology (IUST), Iran</strong> 🇮🇷.
-                </p>
-                <p>
                     My research focuses on the <strong>resilience of structural systems against natural disasters</strong>, particularly in the context of <strong>earthquake damage assessment</strong> and <strong>progressive collapse prevention</strong>.
                     Under the mentorship of Professor Shuang Li, I am utilizing cutting-edge techniques, such as <strong>artificial intelligence</strong> and <strong>machine learning</strong>, to enhance <strong>structural safety</strong> and predict the performance of buildings during and after seismic events.
                     Additionally, I am exploring innovative approaches for ensuring the long-term resilience and sustainability of infrastructure in disaster-prone areas.
+                </p>
+            </section>
+
+            <!-- Software Skills -->
+            <section class="card" id="software">
+                <h2>Software Skills</h2>
+                <ul class="item-list">
+                    <li><strong>FEM:</strong> Ls_Dyna, Abaqus, Sap2000, Etabs, Safe, CsiBridge, Robot Structural Analysis.</li>
+                    <li><strong>Earthquake:</strong> Opensees, Perform3D, SeismoSignal, SeismoMatch, SeismoStruct, SeismoBuild, Opensees Navigator, NONLIN, ZEUS-NL.</li>
+                    <li><strong>Programming Languages:</strong> TCL, Python, VBA Tools Programming.</li>
+                    <li><strong>Other:</strong> Arc GIS Pro, Easy Fit, FRP-Analysis, FRP Lamella.</li>
+                </ul>
+            </section>
+
+            <!-- Opportunities -->
+            <section class="card" id="opportunities">
+                <h2>Opportunities</h2>
+                <p>
+                    I am open to collaboration with motivated students and researchers on topics related to
+                    structural analysis, progressive collapse, and risk assessment. If you are interested,
+                    feel free to contact me with your CV and a brief description of your background and research interests.
                 </p>
             </section>
 
@@ -281,17 +312,6 @@
                     <p><strong>Dissertation Title:</strong> <em>New Techniques for Retrofitting RC Frames Against Progressive Collapse</em></p>
                     <p><strong>Supervisor:</strong> Dr. Mohsen Ali Shayanfar</p>
                 </div>
-            </section>
-
-            <!-- Software Skills -->
-            <section class="card" id="software">
-                <h2>Software Skills</h2>
-                <ul class="item-list">
-                    <li><strong>FEM:</strong> Ls_Dyna, Abaqus, Sap2000, Etabs, Safe, CsiBridge, Robot Structural Analysis.</li>
-                    <li><strong>Earthquake:</strong> Opensees, Perform3D, SeismoSignal, SeismoMatch, SeismoStruct, SeismoBuild, Opensees Navigator, NONLIN, ZEUS-NL.</li>
-                    <li><strong>Programming Languages:</strong> TCL, Python, VBA Tools Programming.</li>
-                    <li><strong>Other:</strong> Arc GIS Pro, Easy Fit, FRP-Analysis, FRP Lamella.</li>
-                </ul>
             </section>
 
             <!-- News -->
@@ -332,6 +352,60 @@
                         <div class="item-meta">
                             N.M. Saeed, B.H. Ali, M. Bigonah, A.S. Jamal, H.Z. Hassan,<br>
                             <i>Journal of Building Pathology and Rehabilitation</i>, 2025.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            Automatic evaluation of progressive collapse performance of braced frames
+                        </div>
+                        <div class="item-meta">
+                            M. Bigonah, B.H. Ali, P. Rashed, S. Li,<br>
+                            <i>Engineering Failure Analysis</i>, 2024.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            Assessment of different retrofitting methods on structural performance of RC buildings against progressive collapse
+                        </div>
+                        <div class="item-meta">
+                            B.H. Ali, E. Mete Güneyisi, M. Bigonah,<br>
+                            <i>Applied Sciences</i>, 2022.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            Performance evaluation on effects of all types of infill against the progressive collapse of reinforced concrete frames
+                        </div>
+                        <div class="item-meta">
+                            M. Bigonah, H. Soltani, M. Zabihi-Samani, M.A. Shayanfar,<br>
+                            <i>Asian Journal of Civil Engineering</i>, 2020.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            A porous polymeric–hydroxyapatite scaffold used for femur fractures treatment: fabrication, analysis, and simulation
+                        </div>
+                        <div class="item-meta">
+                            S. Esmaeili, H. Akbari Aghdam, M. Motififard, M. Bigonah, et al.,<br>
+                            <i>European Journal of Orthopaedic Surgery &amp; Traumatology</i>, 2020.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            Simulation and Evaluation of Corrosion Effects on the Reduction of Column Capacity
+                        </div>
+                        <div class="item-meta">
+                            M.A. Shayanfar, D. Sobhani, M. Bigonah, et al.,<br>
+                            <i>Mapta Journal of Architecture, Urbanism and Civil Engineering</i>, 2018.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            The effectiveness investigation of new retrofitting techniques for RC frame against progressive collapse
+                        </div>
+                        <div class="item-meta">
+                            M. Shayanfar, M. Bigonah, D. Sobhani, M. Zabihi-Samani,<br>
+                            <i>Civil Engineering Journal</i>, 2018.
                         </div>
                     </li>
                 </ul>
