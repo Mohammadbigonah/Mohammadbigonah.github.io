@@ -16,6 +16,7 @@
             --border: #e0e0e0;
             --nav-bg: #333;
             --nav-hover: #555;
+            --hover-color: #0088cc;
         }
         * {
             box-sizing: border-box;
@@ -43,6 +44,7 @@
             justify-content: center;
             position: relative;
             z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .top-nav a {
             color: #fff;
@@ -53,10 +55,8 @@
         }
         .top-nav a:hover {
             color: var(--nav-hover);
-        }
-        .top-nav .menu-container {
-            display: flex;
-            align-items: center;
+            background-color: rgba(0, 136, 204, 0.1);
+            border-radius: 5px;
         }
 
         /* Sidebar Styles */
@@ -71,6 +71,7 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .avatar {
             width: 140px;
@@ -127,7 +128,7 @@
             margin-bottom: 6px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 10px;
         }
         .link-list span {
             font-weight: 600;
@@ -162,6 +163,7 @@
             border-radius: 12px;
             border: 1px solid var(--border);
             padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .card h1,
         .card h2 {
@@ -256,9 +258,9 @@
             </div>
 
             <ul class="contact-list">
-                <li><strong>Email:</strong> bigonah (at) stu.hit.edu.cn</li>
+                <li><strong>Email:</strong> <a href="mailto:bigonah@stu.hit.edu.cn"><i class="fas fa-envelope"></i> bigonah (at) stu.hit.edu.cn</a></li>
                 <li><strong>GitHub:</strong>
-                    <a href="https://github.com/Mohammadbigonah" target="_blank">github.com/Mohammadbigonah</a>
+                    <a href="https://github.com/Mohammadbigonah" target="_blank"><i class="fab fa-github"></i> github.com/Mohammadbigonah</a>
                 </li>
             </ul>
 
@@ -331,7 +333,6 @@
             <!-- Education -->
             <section class="card" id="education">
                 <h2>Education</h2>
-
                 <div class="item">
                     <h3>Ph.D. in Civil Engineering (Sep. 2022 – Present)</h3>
                     <p><strong>Key Lab of Smart Prevention and Mitigation of Civil Engineering Disasters, Harbin Institute of Technology</strong>, Harbin, China</p>
@@ -354,10 +355,6 @@
                     <li>
                         <span class="item-meta">2025</span> –
                         <span>Completed the resilience assessment of Tangshan city, China.</span>
-                    </li>
-                    <li>
-                        <span class="item-meta">2024</span> –
-                        <span>Published a paper on "Impact of structure height on retrofitted RC structures for progressive collapse prevention".</span>
                     </li>
                 </ul>
             </section>
@@ -409,24 +406,6 @@
                         <div class="item-meta">
                             S. Esmaeili, H. Akbari Aghdam, M. Motififard, M. Bigonah, et al.,<br>
                             <i>European Journal of Orthopaedic Surgery &amp; Traumatology</i>, 2020.
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item-title">
-                            Simulation and Evaluation of Corrosion Effects on the Reduction of Column Capacity
-                        </div>
-                        <div class="item-meta">
-                            M.A. Shayanfar, D. Sobhani, M. Bigonah, et al.,<br>
-                            <i>Mapta Journal of Architecture, Urbanism and Civil Engineering</i>, 2018.
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item-title">
-                            The effectiveness investigation of new retrofitting techniques for RC frame against progressive collapse
-                        </div>
-                        <div class="item-meta">
-                            M. Shayanfar, M. Bigonah, D. Sobhani, M. Zabihi-Samani,<br>
-                            <i>Civil Engineering Journal</i>, 2018.
                         </div>
                     </li>
                 </ul>
