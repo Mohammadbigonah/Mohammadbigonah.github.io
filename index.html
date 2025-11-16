@@ -14,6 +14,8 @@
             --text-muted: #666;
             --accent: #0056b3;
             --border: #e0e0e0;
+            --nav-bg: #333;
+            --nav-hover: #555;
         }
         * {
             box-sizing: border-box;
@@ -32,23 +34,41 @@
         a:hover {
             text-decoration: underline;
         }
-        .page {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 16px;
+        /* Menu Styles */
+        .top-nav {
+            background: var(--nav-bg);
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
         }
-        .top-lang {
-            text-align: right;
-            font-size: .9rem;
-            margin-bottom: 8px;
+        .top-nav a {
+            color: #fff;
+            margin: 0 15px;
+            font-size: 1rem;
+            text-transform: uppercase;
         }
-        .top-lang a {
-            margin-left: 8px;
+        .top-nav a:hover {
+            color: var(--nav-hover);
         }
+        .top-nav .menu-container {
+            display: flex;
+            align-items: center;
+        }
+        .top-nav .menu-container a {
+            padding: 8px 16px;
+        }
+        .top-nav .menu-container a:hover {
+            background: var(--nav-hover);
+            border-radius: 4px;
+        }
+        /* Sidebar Styles */
         .layout {
             display: grid;
             grid-template-columns: 280px minmax(0, 1fr);
             gap: 20px;
+            margin-top: 20px;
         }
         .sidebar {
             background: var(--card-bg);
@@ -98,9 +118,6 @@
         }
         .contact-list li {
             margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
         .link-list {
             list-style: none;
@@ -112,7 +129,7 @@
             margin-bottom: 6px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
         .link-list span {
             font-weight: 600;
@@ -128,10 +145,6 @@
             color: #fff;
             font-size: 0.7rem;
             flex-shrink: 0;
-        }
-        .icon {
-            font-size: 1rem;
-            color: var(--accent);
         }
         .main {
             display: flex;
@@ -206,12 +219,15 @@
 <div class="page">
 
     <!-- Top navigation -->
-    <div class="top-lang">
-        <a href="#about">About</a> ·
-        <a href="#interests">Research</a> ·
-        <a href="#publications">Publications</a> ·
-        <a href="#languages">Languages</a> ·
-        <a href="#contact">Contact</a>
+    <div class="top-nav">
+        <div class="menu-container">
+            <a href="#about">About</a>
+            <a href="#interests">Research</a>
+            <a href="#publications">Publications</a>
+            <a href="#languages">Languages</a>
+            <a href="#contact">Contact</a>
+            <a href="#software">Software</a> <!-- Added Software to the menu -->
+        </div>
     </div>
 
     <div class="layout">
