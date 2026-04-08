@@ -5,25 +5,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mohammad Bigonah | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --bg: #f7f8fb;
-      --surface: #ffffff;
-      --surface-soft: #fbfbfd;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --line: #e5e7eb;
-      --accent: #4f46e5;
-      --accent-soft: #eef2ff;
-      --shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+      --bg: #f3f3f5;
+      --surface: rgba(255, 255, 255, 0.92);
+      --surface-solid: #ffffff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --accent: #5b5ce2;
+      --accent-dark: #494ad6;
+      --accent-soft: rgba(91, 92, 226, 0.12);
+      --green-soft: #198f82;
+      --border: rgba(17, 24, 39, 0.08);
+      --shadow: 0 12px 28px rgba(17, 24, 39, 0.10);
+      --shadow-soft: 0 8px 20px rgba(17, 24, 39, 0.08);
       --radius: 18px;
-      --max: 1180px;
+      --maxw: 1240px;
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -31,20 +36,20 @@
     }
 
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
+      color: var(--text-main);
+      line-height: 1.75;
     }
 
     a {
       color: var(--accent);
       text-decoration: none;
+      transition: 0.25s ease;
     }
 
     a:hover {
-      text-decoration: underline;
+      color: var(--accent-dark);
     }
 
     img {
@@ -52,349 +57,655 @@
       display: block;
     }
 
-    .page {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 24px;
-    }
-
     .top-nav {
       position: sticky;
       top: 0;
-      z-index: 30;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(10px);
-      background: rgba(247, 248, 251, .82);
-      border-bottom: 1px solid rgba(229, 231, 235, .8);
+      border-bottom: 1px solid var(--border);
     }
 
     .top-nav-inner {
-      max-width: var(--max);
+      max-width: var(--maxw);
       margin: 0 auto;
-      padding: 14px 24px;
+      padding: 0 24px;
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 18px;
     }
 
     .brand {
-      font-weight: 700;
-      letter-spacing: .04em;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--accent);
     }
 
     .menu {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
+      align-items: center;
     }
 
     .menu a {
-      color: var(--text);
-      font-size: .92rem;
-      padding: 8px 12px;
-      border-radius: 999px;
-      transition: .2s ease;
+      padding: 12px 18px;
+      border-radius: 10px;
+      color: #374151;
+      font-weight: 500;
     }
 
+    .menu a.active,
     .menu a:hover {
-      text-decoration: none;
-      background: var(--surface);
-      box-shadow: var(--shadow);
+      background: var(--accent);
+      color: white;
     }
 
-    .layout {
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 26px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+
+    .hero {
+      min-height: 72vh;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(91, 92, 226, 0.28), transparent 16%),
+        radial-gradient(circle at 70% 65%, rgba(91, 92, 226, 0.24), transparent 18%),
+        radial-gradient(circle at 55% 35%, rgba(255, 255, 255, 0.12), transparent 1.4%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.18), transparent 1%),
+        linear-gradient(180deg, rgba(8, 12, 34, 0.84), rgba(7, 12, 44, 0.94)),
+        url('hero-bg.jpg') center/cover no-repeat;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.55) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.35) 0 1px, transparent 1.5px);
+      background-size: 180px 180px, 260px 260px;
+      background-position: 0 0, 90px 120px;
+      opacity: .26;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 80px 24px 100px;
+      min-height: 72vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-photo {
+      width: 280px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 5px solid #6e70ff;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .28);
+      background: #ddd;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+    }
+
+    .hero h1 {
+      margin-top: 28px;
+      font-size: clamp(2.3rem, 6vw, 4.6rem);
+      line-height: 1.08;
+      color: white;
+    }
+
+    .hero p {
+      font-size: clamp(1.05rem, 2vw, 1.9rem);
+      color: #7f88ff;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+
+    .page-wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 42px 24px 60px;
+    }
+
+    .content-grid {
       display: grid;
-      grid-template-columns: 300px minmax(0, 1fr);
-      gap: 24px;
-      align-items: start;
-    }
-
-    .sidebar,
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      grid-template-columns: 290px minmax(0, 1fr);
+      gap: 28px;
     }
 
     .sidebar {
+      align-self: start;
       position: sticky;
-      top: 86px;
-      padding: 24px;
+      top: 108px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      border-radius: 24px;
+      padding: 28px 22px;
     }
 
-    .avatar {
-      width: 148px;
-      height: 148px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 18px;
-      background: #e5e7eb;
-    }
-
-    .name {
-      text-align: center;
-      font-size: 1.6rem;
-      line-height: 1.2;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .title,
-    .location {
-      text-align: center;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    .location {
-      margin: 0 0 18px;
-    }
-
-    .contact-list,
-    .profile-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .contact-list li,
-    .profile-list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      margin-bottom: 12px;
-      font-size: .95rem;
-    }
-
-    .contact-list i {
-      width: 18px;
-      color: var(--accent);
-      margin-top: 5px;
-    }
-
-    .profiles-title {
-      margin: 18px 0 10px;
-      font-weight: 600;
-      font-size: .95rem;
-    }
-
-    .profile-badge {
-      width: 24px;
-      height: 24px;
+    .sidebar .avatar {
+      width: 132px;
+      margin: 0 auto 14px;
       border-radius: 999px;
+      overflow: hidden;
+      border: 4px solid rgba(91, 92, 226, .18);
+    }
+
+    .sidebar .avatar img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+    .sidebar .name {
+      text-align: center;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .sidebar .title,
+    .sidebar .location {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: .96rem;
+    }
+
+    .sidebar .location {
+      margin-top: 6px;
+    }
+
+    .sidebar h4 {
+      font-size: .95rem;
+      margin: 22px 0 10px;
+      color: #111827;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: var(--text-muted);
+    }
+
+    .sidebar i,
+    .icon-circle {
+      width: 28px;
+      height: 28px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent);
-      font-size: .8rem;
-      font-weight: 700;
-      flex: 0 0 24px;
-      margin-top: 2px;
+      flex: 0 0 28px;
     }
 
     .main {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+      min-width: 0;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-accent {
+      width: 180px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin-bottom: 28px;
     }
 
     .card {
-      padding: 26px;
-      transition: transform .2s ease, box-shadow .2s ease;
+      background: var(--surface-solid);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 30px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(17, 24, 39, .04);
     }
 
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 38px rgba(17, 24, 39, .11);
+    .card h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 16px;
     }
 
-    h1,
-    h2,
-    h3 {
-      margin-top: 0;
-      color: var(--text);
+    .stats-card {
+      padding: 34px 28px;
     }
 
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 14px;
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
     }
 
-    h2 {
-      font-size: 1.18rem;
-      margin-bottom: 14px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--line);
+    .stat-item {
+      text-align: center;
+      padding: 18px 12px;
     }
 
-    h3 {
-      font-size: 1rem;
-      margin-bottom: 6px;
+    .stat-item+.stat-item {
+      border-left: 1px solid rgba(17, 24, 39, .10);
     }
 
-    .item-list {
+    .stat-number {
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      line-height: 1;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -.03em;
+    }
+
+    .stat-label {
+      font-size: .98rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .stats-note {
+      text-align: center;
+      color: #9ca3af;
+      font-size: .95rem;
+      margin-top: 18px;
+    }
+
+    .item-list,
+    .pub-list {
       list-style: none;
-      padding: 0;
-      margin: 0;
     }
 
     .item-list li {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
-    .pub-title,
-    .item-title {
-      font-weight: 600;
+    .pub-list {
+      display: grid;
+      gap: 18px;
     }
 
-    .item-meta,
-    .muted {
-      color: var(--muted);
-      font-size: .93rem;
+    .pub-card {
+      border: 1px solid rgba(17, 24, 39, .08);
+      border-radius: 18px;
+      padding: 20px 20px 18px;
+      background: #fff;
     }
 
-    .media-wrap {
-      margin-top: 14px;
-      background: var(--surface-soft);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px;
+    .pub-title {
+      font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+      line-height: 1.45;
+      font-weight: 700;
+      color: #111827;
     }
 
-    .media-wrap img {
-      border-radius: 12px;
-      box-shadow: 0 10px 24px rgba(17, 24, 39, .10);
-      margin: 0 auto;
-    }
-
-    .note {
+    .pub-authors {
       margin-top: 8px;
-      text-align: center;
-      color: var(--muted);
-      font-size: .9rem;
+      color: #5f6675;
+      font-size: 1rem;
     }
 
-    .footer {
+    .pub-journal {
+      margin-top: 6px;
+      color: var(--accent);
+      font-size: 1.02rem;
+      font-style: italic;
+    }
+
+    .pub-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      margin-top: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(17, 24, 39, .08);
+    }
+
+    .pub-actions a,
+    .pub-actions button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .pub-actions .key {
+      color: var(--green-soft);
+    }
+
+    .pub-media {
+      max-width: 760px;
+      margin: 20px auto 0;
+      border: 1px solid rgba(17, 24, 39, .1);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fafafa;
+    }
+
+    .pub-media img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+    }
+
+    .pub-abstract {
+      margin-top: 14px;
+      color: #4b5563;
+    }
+
+    .pub-abstract[hidden] {
+      display: none;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .caption {
       text-align: center;
-      color: var(--muted);
-      font-size: .84rem;
-      padding: 8px 0 24px;
+      color: var(--text-muted);
+      font-size: .92rem;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: .9rem;
+      padding: 10px 0 0;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @media (max-width: 980px) {
-      .layout {
+      .content-grid {
         grid-template-columns: 1fr;
       }
 
       .sidebar {
         position: static;
       }
-    }
 
-    @media (max-width: 640px) {
-      .page {
-        padding: 16px;
+      .stats-grid {
+        grid-template-columns: 1fr;
       }
 
-      .top-nav-inner {
-        padding: 12px 16px;
+      .stat-item+.stat-item {
+        border-left: 0;
+        border-top: 1px solid rgba(17, 24, 39, .10);
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hamburger {
+        display: flex;
       }
 
       .menu {
-        gap: 4px;
+        display: none;
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, .98);
+        padding: 16px 20px 20px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 10px 24px rgba(17, 24, 39, .08);
+      }
+
+      .menu.active {
+        display: flex;
+        flex-direction: column;
       }
 
       .menu a {
-        font-size: .85rem;
-        padding: 7px 10px;
+        width: 100%;
+        text-align: center;
       }
 
-      .card,
-      .sidebar {
-        padding: 20px;
+      .hero {
+        min-height: 72vh;
+      }
+    }
+
+    @media (max-width: 640px) {
+
+      .top-nav-inner,
+      .page-wrap {
+        padding-left: 16px;
+        padding-right: 16px;
       }
 
-      h1 {
-        font-size: 1.55rem;
+      .card {
+        padding: 22px 18px;
+      }
+
+      .hero-photo {
+        width: 220px;
+      }
+
+      .section-accent {
+        width: 140px;
+      }
+
+      .pub-actions {
+        gap: 14px;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="top-nav">
+  <header class="top-nav">
     <div class="top-nav-inner">
-      <div class="brand">MB</div>
-      <nav class="menu">
-        <a href="#about">About</a>
-        <a href="#interests">Research</a>
+      <div class="brand">Mohammad Bigonah</div>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+      <nav class="menu" id="navMenu">
+        <a href="#home" class="active">Home</a>
         <a href="#publications">Publications</a>
-        <a href="#languages">Languages</a>
-        <a href="#contact">Contact</a>
-        <a href="#software">Software</a>
-        <a href="#news">News</a>
-        <a href="#opportunities">Opportunities</a>
         <a href="#education">Education</a>
+        <a href="#software">Skills</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
-  </div>
-
-  <div class="page">
-    <div class="layout">
-      <aside class="sidebar">
-        <div class="avatar">
-          <img src="big.jpg" alt="Mohammad Bigonah profile photo">
-        </div>
+  </header>
+  <section class="hero" id="home">
+    <div class="hero-inner fade-up visible">
+      <div class="hero-photo"><img src="big.jpg" alt="Mohammad Bigonah profile photo"></div>
+      <h1>Mohammad Bigonah</h1>
+      <p>PhD Candidate / Researcher</p>
+    </div>
+  </section>
+  <div class="page-wrap">
+    <div class="content-grid">
+      <aside class="sidebar fade-up">
+        <div class="avatar"><img src="big.jpg" alt="Mohammad Bigonah"></div>
         <div class="name">Mohammad Bigonah</div>
         <div class="title">PhD Candidate / Researcher</div>
-        <p class="location">Key Laboratory of Smart Prevention and Mitigation of Civil Engineering Disasters,<br>Harbin
-          Institute of Technology, Harbin, China</p>
-
-        <ul class="contact-list">
-          <li><i class="fas fa-envelope"></i><span><strong>Email:</strong> <a
+        <div class="location">Harbin Institute of Technology, China</div>
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fas fa-envelope"></i><span><a
                 href="mailto:bigonah@stu.hit.edu.cn">bigonah@stu.hit.edu.cn</a></span></li>
-          <li><i class="fab fa-github"></i><span><strong>GitHub:</strong> <a href="https://github.com/Mohammadbigonah"
-                target="_blank" rel="noopener">github.com/Mohammadbigonah</a></span></li>
+          <li><i class="fab fa-github"></i><span><a href="https://github.com/Mohammadbigonah" target="_blank"
+                rel="noopener">github.com/Mohammadbigonah</a></span></li>
         </ul>
-
-        <div class="profiles-title">Profiles</div>
-        <ul class="profile-list">
-          <li><span class="profile-badge">G</span><a href="https://scholar.google.com/citations?user=Jcs-EDoAAAAJ&hl=en"
-              target="_blank" rel="noopener">Google Scholar</a></li>
-          <li><span class="profile-badge">R</span><a href="https://www.researchgate.net/profile/Mohammad-Bigonah"
-              target="_blank" rel="noopener">ResearchGate</a></li>
-          <li><span class="profile-badge">in</span><a
-              href="https://www.linkedin.com/in/seyedmohammadbigonah/?skipRedirect=true" target="_blank"
-              rel="noopener">LinkedIn</a></li>
+        <h4>Profiles</h4>
+        <ul>
+          <li><span class="icon-circle">G</span><span><a
+                href="https://scholar.google.com/citations?user=Jcs-EDoAAAAJ&hl=en" target="_blank"
+                rel="noopener">Google Scholar</a></span></li>
+          <li><span class="icon-circle">R</span><span><a href="https://www.researchgate.net/profile/Mohammad-Bigonah"
+                target="_blank" rel="noopener">ResearchGate</a></span></li>
+          <li><span class="icon-circle">in</span><span><a href="https://www.linkedin.com/in/seyedmohammadbigonah/"
+                target="_blank" rel="noopener">LinkedIn</a></span></li>
         </ul>
       </aside>
-
       <main class="main">
-        <section class="card" id="about">
-          <h1>About Me</h1>
-          <p>My research focuses on the <strong>resilience of structural systems against natural disasters</strong>,
-            particularly in the context of <strong>earthquake damage assessment</strong> and <strong>progressive
-              collapse prevention</strong>. Under the mentorship of Professor Shuang Li, I am utilizing cutting-edge
-            techniques, such as <strong>artificial intelligence</strong> and <strong>machine learning</strong>, to
-            enhance <strong>structural safety</strong> and predict the performance of buildings during and after seismic
-            events. Additionally, I am exploring innovative approaches for ensuring the long-term resilience and
-            sustainability of infrastructure in disaster-prone areas.</p>
+        <section class="fade-up" id="academic-stats">
+          <h2 class="section-title">Academic Stats</h2>
+          <div class="section-accent"></div>
+          <div class="card stats-card">
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-number" id="pubCount">7</div>
+                <div class="stat-label">Publications</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" id="citationCount">220+</div>
+                <div class="stat-label">Citations</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" id="hIndex">4</div>
+                <div class="stat-label">H-Index</div>
+              </div>
+            </div>
+            <div class="stats-note">Academic Stats are loaded from <code>scholar_stats.json</code> when available.
+              Google Scholar updates metrics on your Scholar profile automatically, and the included GitHub Actions
+              workflow can refresh this file on a schedule. <span id="statsUpdatedText">Last update: manual / fallback
+                values.</span></div>
+          </div>
         </section>
-
-        <section class="card" id="interests">
+        <section class="card fade-up" id="about">
+          <h2>About Me</h2>
+          <p>My research centers on improving the <strong>resilience of structural systems against natural
+              hazards</strong>, with particular emphasis on <strong>earthquake damage assessment</strong>,
+            <strong>post-earthquake loss evaluation</strong>, and <strong>progressive collapse prevention</strong>.
+            Under the supervision of Professor Shuang Li, I employ advanced methods such as <strong>artificial
+              intelligence</strong> and <strong>machine learning</strong> to enhance <strong>structural safety</strong>,
+            assess building performance during and after seismic events, and support more reliable decision-making for
+            risk mitigation. My broader goal is to develop innovative strategies that strengthen <strong>city earthquake
+              resilience</strong> and promote the long-term sustainability of infrastructure in disaster-prone regions.
+          </p>
+        </section>
+        <section class="card fade-up" id="interests">
           <h2>Research Interests</h2>
           <ul class="item-list">
-            <li>• Disaster Prevention and Mitigation</li>
-            <li>• Progressive Collapse of Structures</li>
-            <li>• Post-Earthquake Damage and Recovery</li>
-            <li>• City Earthquake Resilience</li>
-            <li>• Performance-Based Seismic Design</li>
+            <li>Disaster Prevention</li>
+            <li>Post-Earthquake Loss Assessment</li>
+            <li>Progressive Collapse</li>
+            <li>City Earthquake Resilience</li>
           </ul>
         </section>
-
-        <section class="card" id="software">
+        <section class="card fade-up" id="publications">
+          <h2>Publications</h2>
+          <div class="pub-list" id="publicationList">
+            <article class="pub-card">
+              <div class="pub-title">Impact of structure height on retrofitted RC structures for progressive collapse
+                prevention</div>
+              <div class="pub-authors">N.M. Saeed, B.H. Ali, M. Bigonah, A.S. Jamal, H.Z. Hassan (2025).</div>
+              <div class="pub-journal">Journal of Building Pathology and Rehabilitation</div>
+            </article>
+            <article class="pub-card">
+              <div class="pub-title">Automatic evaluation of progressive collapse performance of braced frames</div>
+              <div class="pub-authors">M. Bigonah, B.H. Ali, P. Rashed, S. Li (2024).</div>
+              <div class="pub-journal">Engineering Failure Analysis</div>
+              <div class="pub-actions">
+                <a href="#" aria-disabled="true"><i class="fa-solid fa-link"></i> Article Link</a>
+                <button type="button" class="abstract-toggle" aria-expanded="true"><i
+                    class="fa-regular fa-file-lines"></i> Read Abstract <i class="fa-solid fa-chevron-up"></i></button>
+                <span class="key"><i class="fa-solid fa-sparkles"></i> Key Contributions</span>
+              </div>
+              <div class="pub-media"><img src="UFC.gif" alt="Animated preview for braced frames publication"></div>
+              <div class="pub-abstract">
+                This study presents an automatic framework for evaluating the progressive collapse performance of braced
+                frames, aiming to improve the speed and consistency of structural assessment under abnormal loading
+                scenarios.
+              </div>
+            </article>
+            <article class="pub-card">
+              <div class="pub-title">Assessment of different retrofitting methods on structural performance of RC
+                buildings against progressive collapse</div>
+              <div class="pub-authors">B.H. Ali, E. Mete Güneyisi, M. Bigonah (2022).</div>
+              <div class="pub-journal">Applied Sciences</div>
+            </article>
+            <article class="pub-card">
+              <div class="pub-title">Performance evaluation on effects of all types of infill against the progressive
+                collapse of reinforced concrete frames</div>
+              <div class="pub-authors">M. Bigonah, H. Soltani, M. Zabihi-Samani, M.A. Shayanfar (2020).</div>
+              <div class="pub-journal">Asian Journal of Civil Engineering</div>
+            </article>
+            <article class="pub-card">
+              <div class="pub-title">A porous polymeric–hydroxyapatite scaffold used for femur fractures treatment:
+                fabrication, analysis, and simulation</div>
+              <div class="pub-authors">S. Esmaeili, H. Akbari Aghdam, M. Motififard, M. Bigonah, et al. (2020).</div>
+              <div class="pub-journal">European Journal of Orthopaedic Surgery &amp; Traumatology</div>
+            </article>
+            <article class="pub-card">
+              <div class="pub-title">Simulation and Evaluation of Corrosion Effects on the Reduction of Column Capacity
+              </div>
+              <div class="pub-authors">M.A. Shayanfar, D. Sobhani, M. Bigonah, et al. (2018).</div>
+              <div class="pub-journal">Mapta Journal of Architecture, Urbanism and Civil Engineering</div>
+            </article>
+            <article class="pub-card">
+              <div class="pub-title">The effectiveness investigation of new retrofitting techniques for RC frame against
+                progressive collapse</div>
+              <div class="pub-authors">M. Shayanfar, M. Bigonah, D. Sobhani, M. Zabihi-Samani (2018).</div>
+              <div class="pub-journal">Civil Engineering Journal</div>
+            </article>
+          </div>
+        </section>
+        <section class="card fade-up" id="software">
           <h2>Software Skills</h2>
           <ul class="item-list">
             <li><strong>FEM:</strong> Ls_Dyna, Abaqus, Sap2000, Etabs, Safe, CsiBridge, Robot Structural Analysis.</li>
@@ -404,126 +715,86 @@
             <li><strong>Other:</strong> Arc GIS Pro, Easy Fit, FRP-Analysis, FRP Lamella.</li>
           </ul>
         </section>
-
-        <section class="card" id="opportunities">
+        <section class="card fade-up" id="opportunities">
           <h2>Opportunities</h2>
           <p>I am open to collaboration with motivated students and researchers on topics related to structural
             analysis, progressive collapse, and risk assessment. If you are interested, feel free to contact me with
             your CV and a brief description of your background and research interests.</p>
         </section>
-
-        <section class="card" id="education">
+        <section class="card fade-up" id="education">
           <h2>Education</h2>
-          <div class="item-list">
-            <div style="margin-bottom: 18px;">
+          <div class="two-col">
+            <div>
               <h3>Ph.D. in Civil Engineering (Sep. 2022 – Present)</h3>
-              <div class="item-meta"><strong>Key Lab of Smart Prevention and Mitigation of Civil Engineering Disasters,
-                  Harbin Institute of Technology</strong>, Harbin, China</div>
-              <div><strong>Dissertation Title:</strong> <em>Building Portfolio Earthquake Resilience Evaluation and
-                  Improvement of City in Cold Regions</em></div>
-              <div><strong>Supervisor:</strong> Professor Shuang Li</div>
+              <p><strong>Key Lab of Smart Prevention and Mitigation of Civil Engineering Disasters, Harbin Institute of
+                  Technology</strong>, Harbin, China</p>
+              <p><strong>Dissertation Title:</strong> <em>Building Portfolio Earthquake Resilience Evaluation and
+                  Improvement of City in Cold Regions</em></p>
+              <p><strong>Supervisor:</strong> Professor Shuang Li</p>
             </div>
             <div>
               <h3>Master of Science in Civil Engineering (Sep. 2014 – Jan. 2018)</h3>
-              <div class="item-meta"><strong>Earthquake Engineering, School of Civil Engineering, Iran University of
-                  Science & Technology</strong>, Tehran, Iran</div>
-              <div><strong>Dissertation Title:</strong> <em>New Techniques for Retrofitting RC Frames Against
-                  Progressive Collapse</em></div>
-              <div><strong>Supervisor:</strong> Professor Mohsen Ali Shayanfar</div>
+              <p><strong>Earthquake Engineering, School of Civil Engineering, Iran University of Science &amp;
+                  Technology</strong>, Tehran, Iran</p>
+              <p><strong>Dissertation Title:</strong> <em>New Techniques for Retrofitting RC Frames Against Progressive
+                  Collapse</em></p>
+              <p><strong>Supervisor:</strong> Professor Mohsen Ali Shayanfar</p>
             </div>
           </div>
         </section>
-
-        <section class="card" id="news">
+        <section class="card fade-up" id="news">
           <h2>News</h2>
           <ul class="item-list">
-            <li>
-              <span class="item-meta">2025</span> – Completed the resilience assessment of Tangshan city, China.
-              <div class="media-wrap">
-                <img src="earthquake.png" alt="Earthquake project visual for Tangshan city resilience assessment">
-                <div class="note">Animation / GIF for this project will be added soon.</div>
-              </div>
+            <li><strong>2025</strong> — Completed the resilience assessment of Tangshan city, China.
+              <div class="pub-media"><img src="earthquake.png"
+                  alt="Earthquake themed visual for Tangshan resilience assessment"></div>
+              <div class="caption">A related GIF will be added soon.</div>
             </li>
           </ul>
         </section>
-
-        <section class="card" id="publications">
-          <h2>Publications (selected)</h2>
-          <ul class="item-list">
-            <li>
-              <div class="pub-title">Impact of structure height on retrofitted RC structures for progressive collapse
-                prevention</div>
-              <div class="item-meta">N.M. Saeed, B.H. Ali, M. Bigonah, A.S. Jamal, H.Z. Hassan,<br><em>Journal of
-                  Building Pathology and Rehabilitation</em>, 2025.</div>
-            </li>
-            <li>
-              <div class="pub-title">Automatic evaluation of progressive collapse performance of braced frames</div>
-              <div class="item-meta">M. Bigonah, B.H. Ali, P. Rashed, S. Li,<br><em>Engineering Failure Analysis</em>,
-                2024.</div>
-              <div class="media-wrap">
-                <img src="UFC.gif" alt="Animated visual for progressive collapse performance of braced frames">
-              </div>
-            </li>
-            <li>
-              <div class="pub-title">Assessment of different retrofitting methods on structural performance of RC
-                buildings against progressive collapse</div>
-              <div class="item-meta">B.H. Ali, E. Mete Güneyisi, M. Bigonah,<br><em>Applied Sciences</em>, 2022.</div>
-            </li>
-            <li>
-              <div class="pub-title">Performance evaluation on effects of all types of infill against the progressive
-                collapse of reinforced concrete frames</div>
-              <div class="item-meta">M. Bigonah, H. Soltani, M. Zabihi-Samani, M.A. Shayanfar,<br><em>Asian Journal of
-                  Civil Engineering</em>, 2020.</div>
-            </li>
-            <li>
-              <div class="pub-title">A porous polymeric–hydroxyapatite scaffold used for femur fractures treatment:
-                fabrication, analysis, and simulation</div>
-              <div class="item-meta">S. Esmaeili, H. Akbari Aghdam, M. Motififard, M. Bigonah, et al.,<br><em>European
-                  Journal of Orthopaedic Surgery &amp; Traumatology</em>, 2020.</div>
-            </li>
-            <li>
-              <div class="pub-title">Simulation and Evaluation of Corrosion Effects on the Reduction of Column Capacity
-              </div>
-              <div class="item-meta">M.A. Shayanfar, D. Sobhani, M. Bigonah, et al.,<br><em>Mapta Journal of
-                  Architecture, Urbanism and Civil Engineering</em>, 2018.</div>
-            </li>
-            <li>
-              <div class="pub-title">The effectiveness investigation of new retrofitting techniques for RC frame against
-                progressive collapse</div>
-              <div class="item-meta">M. Shayanfar, M. Bigonah, D. Sobhani, M. Zabihi-Samani,<br><em>Civil Engineering
-                  Journal</em>, 2018.</div>
-            </li>
-          </ul>
-        </section>
-
-        <section class="card" id="languages">
+        <section class="card fade-up" id="languages">
           <h2>Languages</h2>
           <ul class="item-list">
-            <li>• English</li>
-            <li>• Persian</li>
-            <li>• Chinese</li>
+            <li>English</li>
+            <li>Persian</li>
+            <li>Chinese</li>
           </ul>
         </section>
-
-        <section class="card" id="awards">
+        <section class="card fade-up" id="awards">
           <h2>Grants &amp; Awards</h2>
           <ul class="item-list">
-            <li>
-              <div class="item-title">CSC Scholarship</div>
-              <div class="item-meta">China Scholarship Council – Awarded August 2022.</div>
-            </li>
+            <li><strong>CSC Scholarship</strong> — China Scholarship Council, awarded August 2022.</li>
           </ul>
         </section>
-
-        <section class="card" id="contact">
+        <section class="card fade-up" id="contact">
           <h2>Contact</h2>
-          <p>Email is the best way to reach me:<br><strong>bigonah@stu.hit.edu.cn</strong></p>
+          <p>Email is the best way to reach me:</p>
+          <p><strong>bigonah@stu.hit.edu.cn</strong></p>
         </section>
-
-        <div class="footer">© 2025 Mohammad Bigonah. Built with HTML &amp; GitHub Pages.</div>
+        <footer>© 2025 Mohammad Bigonah. Built with HTML &amp; GitHub Pages.</footer>
       </main>
     </div>
   </div>
+  <script>
+    function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } }); }, { threshold: 0.12 });
+    fadeEls.forEach(el => observer.observe(el));
+    const pubCount = document.querySelectorAll('.pub-card').length;
+    document.getElementById('pubCount').textContent = pubCount;
+    document.querySelectorAll('.abstract-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.pub-card');
+        const abs = card.querySelector('.pub-abstract');
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        abs.hidden = expanded;
+        btn.innerHTML = expanded
+          ? '<i class="fa-regular fa-file-lines"></i> Read Abstract <i class="fa-solid fa-chevron-down"></i>'
+          : '<i class="fa-regular fa-file-lines"></i> Read Abstract <i class="fa-solid fa-chevron-up"></i>';
+      });
+    });
+  </script>
 </body>
 
 </html>
