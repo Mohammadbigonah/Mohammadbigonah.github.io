@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohammad Bigonah | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font مشابه عکس -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     :root {
       --bg: #f3f3f5;
@@ -29,6 +33,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: 'Poppins', sans-serif;
     }
 
     html {
@@ -39,7 +44,70 @@
       font-family: 'Poppins', sans-serif;
       background: var(--bg);
       color: var(--text-main);
-      line-height: 1.75;
+      line-height: 1.9;
+      font-size: 17px;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    .brand,
+    .menu a,
+    .name,
+    .title,
+    .section-title,
+    .pub-title,
+    .stat-number,
+    .stat-label,
+    button,
+    input,
+    textarea,
+    select,
+    a,
+    p,
+    li,
+    span,
+    div {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    p, li, span, div, a {
+      letter-spacing: 0;
+    }
+
+    p {
+      font-size: 1.08rem;
+      line-height: 1.95;
+      font-weight: 300;
+    }
+
+    li {
+      font-size: 1.04rem;
+      line-height: 1.9;
+      font-weight: 300;
+    }
+
+    .card p,
+    .card li,
+    .sidebar li,
+    .pub-authors,
+    .pub-journal,
+    .pub-abstract,
+    .caption {
+      font-weight: 300;
+    }
+
+    #about p {
+      font-size: clamp(1.32rem, 1.9vw, 1.7rem);
+      line-height: 1.92;
+      font-weight: 300;
+      color: #1f2937;
+    }
+
+    #about p + p {
+      margin-top: 22px;
     }
 
     a {
@@ -79,7 +147,7 @@
 
     .brand {
       font-size: 1.15rem;
-      font-weight: 800;
+      font-weight: 600;
       color: var(--accent);
     }
 
@@ -94,7 +162,8 @@
       padding: 12px 18px;
       border-radius: 10px;
       color: #374151;
-      font-weight: 500;
+      font-weight: 400;
+      font-size: 1rem;
     }
 
     .menu a.active,
@@ -175,14 +244,15 @@
     .hero h1 {
       margin-top: 28px;
       font-size: clamp(2.3rem, 6vw, 4.6rem);
-      line-height: 1.08;
+      line-height: 1.1;
       color: white;
+      font-weight: 600;
     }
 
     .hero p {
       font-size: clamp(1.05rem, 2vw, 1.9rem);
-      color: #7f88ff;
-      font-weight: 500;
+      color: #a8b1ff;
+      font-weight: 400;
       margin-top: 10px;
     }
 
@@ -234,6 +304,7 @@
       text-align: center;
       color: var(--text-muted);
       font-size: .96rem;
+      font-weight: 400;
     }
 
     .sidebar .location {
@@ -244,6 +315,7 @@
       font-size: .95rem;
       margin: 22px 0 10px;
       color: #111827;
+      font-weight: 600;
     }
 
     .sidebar ul {
@@ -256,6 +328,8 @@
       gap: 10px;
       margin-bottom: 10px;
       color: var(--text-muted);
+      font-size: 0.98rem;
+      font-weight: 400;
     }
 
     .sidebar i,
@@ -278,7 +352,7 @@
     .section-title {
       font-size: clamp(2rem, 4vw, 3rem);
       line-height: 1.1;
-      font-weight: 800;
+      font-weight: 700;
       margin-bottom: 10px;
     }
 
@@ -305,6 +379,22 @@
       margin-bottom: 16px;
     }
 
+    .card h3 {
+      font-size: 1.06rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card p,
+    .item-list li,
+    .pub-authors,
+    .pub-abstract,
+    .caption,
+    footer {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
     .stats-card {
       padding: 34px 28px;
     }
@@ -320,7 +410,7 @@
       padding: 18px 12px;
     }
 
-    .stat-item+.stat-item {
+    .stat-item + .stat-item {
       border-left: 1px solid rgba(17, 24, 39, .10);
     }
 
@@ -338,6 +428,7 @@
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: .06em;
+      font-weight: 500;
     }
 
     .stats-note {
@@ -371,14 +462,13 @@
     .pub-title {
       font-size: clamp(1.05rem, 1.6vw, 1.35rem);
       line-height: 1.45;
-      font-weight: 700;
+      font-weight: 600;
       color: #111827;
     }
 
     .pub-authors {
       margin-top: 8px;
       color: #5f6675;
-      font-size: 1rem;
     }
 
     .pub-journal {
@@ -386,6 +476,7 @@
       color: var(--accent);
       font-size: 1.02rem;
       font-style: italic;
+      font-weight: 500;
     }
 
     .pub-actions {
@@ -407,12 +498,13 @@
       border: none;
       cursor: pointer;
       font: inherit;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--accent);
     }
 
     .pub-actions .key {
       color: var(--green-soft);
+      font-weight: 500;
     }
 
     .pub-media {
@@ -448,14 +540,12 @@
     .caption {
       text-align: center;
       color: var(--text-muted);
-      font-size: .92rem;
       margin-top: 10px;
     }
 
     footer {
       text-align: center;
       color: var(--text-muted);
-      font-size: .9rem;
       padding: 10px 0 0;
     }
 
@@ -483,7 +573,7 @@
         grid-template-columns: 1fr;
       }
 
-      .stat-item+.stat-item {
+      .stat-item + .stat-item {
         border-left: 0;
         border-top: 1px solid rgba(17, 24, 39, .10);
       }
@@ -526,7 +616,6 @@
     }
 
     @media (max-width: 640px) {
-
       .top-nav-inner,
       .page-wrap {
         padding-left: 16px;
@@ -551,7 +640,6 @@
     }
   </style>
 </head>
-
 <body>
   <header class="top-nav">
     <div class="top-nav-inner">
@@ -569,6 +657,7 @@
       </nav>
     </div>
   </header>
+
   <section class="hero" id="home">
     <div class="hero-inner fade-up visible">
       <div class="hero-photo"><img src="big.jpg" alt="Mohammad Bigonah profile photo"></div>
@@ -576,6 +665,7 @@
       <p>PhD Candidate / Researcher</p>
     </div>
   </section>
+
   <div class="page-wrap">
     <div class="content-grid">
       <aside class="sidebar fade-up">
@@ -583,24 +673,21 @@
         <div class="name">Mohammad Bigonah</div>
         <div class="title">PhD Candidate / Researcher</div>
         <div class="location">Harbin Institute of Technology, China</div>
+
         <h4>Contact</h4>
         <ul>
-          <li><i class="fas fa-envelope"></i><span><a
-                href="mailto:bigonah@stu.hit.edu.cn">bigonah@stu.hit.edu.cn</a></span></li>
-          <li><i class="fab fa-github"></i><span><a href="https://github.com/Mohammadbigonah" target="_blank"
-                rel="noopener">github.com/Mohammadbigonah</a></span></li>
+          <li><i class="fas fa-envelope"></i><span><a href="mailto:bigonah@stu.hit.edu.cn">bigonah@stu.hit.edu.cn</a></span></li>
+          <li><i class="fab fa-github"></i><span><a href="https://github.com/Mohammadbigonah" target="_blank" rel="noopener">github.com/Mohammadbigonah</a></span></li>
         </ul>
+
         <h4>Profiles</h4>
         <ul>
-          <li><span class="icon-circle">G</span><span><a
-                href="https://scholar.google.com/citations?user=Jcs-EDoAAAAJ&hl=en" target="_blank"
-                rel="noopener">Google Scholar</a></span></li>
-          <li><span class="icon-circle">R</span><span><a href="https://www.researchgate.net/profile/Mohammad-Bigonah"
-                target="_blank" rel="noopener">ResearchGate</a></span></li>
-          <li><span class="icon-circle">in</span><span><a href="https://www.linkedin.com/in/seyedmohammadbigonah/"
-                target="_blank" rel="noopener">LinkedIn</a></span></li>
+          <li><span class="icon-circle">G</span><span><a href="https://scholar.google.com/citations?user=Jcs-EDoAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></span></li>
+          <li><span class="icon-circle">R</span><span><a href="https://www.researchgate.net/profile/Mohammad-Bigonah" target="_blank" rel="noopener">ResearchGate</a></span></li>
+          <li><span class="icon-circle">in</span><span><a href="https://www.linkedin.com/in/seyedmohammadbigonah/" target="_blank" rel="noopener">LinkedIn</a></span></li>
         </ul>
       </aside>
+
       <main class="main">
         <section class="fade-up" id="academic-stats">
           <h2 class="section-title">Academic Stats</h2>
@@ -620,18 +707,17 @@
                 <div class="stat-label">H-Index</div>
               </div>
             </div>
-            <div class="stats-note">.
-            .</span></div>
+            <div class="stats-note">.</div>
           </div>
         </section>
+
         <section class="card fade-up" id="about">
           <h2>About Me</h2>
-<p>My name is Mohammad Bigonah, a researcher in <strong>structural and earthquake engineering</strong>, focused on enhancing the <strong>resilience of buildings and urban systems</strong> against earthquakes. During my PhD at the <strong>Harbin Institute of Technology</strong>, I worked on post-earthquake structural performance and the impact of environmental factors such as temperature on building functionality.</p>
-
-<p>My research covers <strong>post-earthquake building function</strong>, <strong>building portfolio analysis at the city scale</strong>, <strong>urban casualty estimation</strong>, <strong>recovery and resilience modeling</strong>, and <strong>progressive collapse</strong>.</p>
-
-<p>I integrate <strong>structural engineering</strong> with <strong>artificial intelligence</strong>, <strong>machine learning</strong>, and the <strong>Belief Rule-Based (BRB)</strong> approach to handle uncertainty and improve prediction accuracy. My goal is to develop reliable and scalable tools to support seismic resilience and sustainable infrastructure.</p>          
+          <p>My name is Mohammad Bigonah, a researcher in <strong>structural and earthquake engineering</strong>, focused on enhancing the <strong>resilience of buildings and urban systems</strong> against earthquakes. During my PhD at the <strong>Harbin Institute of Technology</strong>, I worked on post-earthquake structural performance and the impact of environmental factors such as temperature on building functionality.</p>
+          <p style="margin-top:14px;">My research covers <strong>post-earthquake building function</strong>, <strong>building portfolio analysis at the city scale</strong>, <strong>urban casualty estimation</strong>, <strong>recovery and resilience modeling</strong>, and <strong>progressive collapse</strong>.</p>
+          <p style="margin-top:14px;">I integrate <strong>structural engineering</strong> with <strong>artificial intelligence</strong>, <strong>machine learning</strong>, and the <strong>Belief Rule-Based (BRB)</strong> approach to handle uncertainty and improve prediction accuracy. My goal is to develop reliable and scalable tools to support seismic resilience and sustainable infrastructure.</p>
         </section>
+
         <section class="card fade-up" id="interests">
           <h2>Research Interests</h2>
           <ul class="item-list">
@@ -641,111 +727,106 @@
             <li>City Earthquake Resilience</li>
           </ul>
         </section>
+
         <section class="card fade-up" id="publications">
           <h2>Publications</h2>
           <div class="pub-list" id="publicationList">
             <article class="pub-card">
-              <div class="pub-title">Impact of structure height on retrofitted RC structures for progressive collapse
-                prevention</div>
+              <div class="pub-title">Impact of structure height on retrofitted RC structures for progressive collapse prevention</div>
               <div class="pub-authors">N.M. Saeed, B.H. Ali, M. Bigonah, A.S. Jamal, H.Z. Hassan (2025).</div>
               <div class="pub-journal">Journal of Building Pathology and Rehabilitation</div>
             </article>
+
             <article class="pub-card">
               <div class="pub-title">Automatic evaluation of progressive collapse performance of braced frames</div>
               <div class="pub-authors">M. Bigonah, B.H. Ali, P. Rashed, S. Li (2024).</div>
               <div class="pub-journal">Engineering Failure Analysis</div>
               <div class="pub-actions">
                 <a href="#" aria-disabled="true"><i class="fa-solid fa-link"></i> Article Link</a>
-                <button type="button" class="abstract-toggle" aria-expanded="true"><i
-                    class="fa-regular fa-file-lines"></i> Read Abstract <i class="fa-solid fa-chevron-up"></i></button>
+                <button type="button" class="abstract-toggle" aria-expanded="true"><i class="fa-regular fa-file-lines"></i> Read Abstract <i class="fa-solid fa-chevron-up"></i></button>
                 <span class="key"><i class="fa-solid fa-sparkles"></i> Key Contributions</span>
               </div>
               <div class="pub-media"><img src="UFC.gif" alt="Animated preview for braced frames publication"></div>
               <div class="pub-abstract">
-                This study presents an automatic framework for evaluating the progressive collapse performance of braced
-                frames, aiming to improve the speed and consistency of structural assessment under abnormal loading
-                scenarios.
+                This study presents an automatic framework for evaluating the progressive collapse performance of braced frames, aiming to improve the speed and consistency of structural assessment under abnormal loading scenarios.
               </div>
             </article>
+
             <article class="pub-card">
-              <div class="pub-title">Assessment of different retrofitting methods on structural performance of RC
-                buildings against progressive collapse</div>
+              <div class="pub-title">Assessment of different retrofitting methods on structural performance of RC buildings against progressive collapse</div>
               <div class="pub-authors">B.H. Ali, E. Mete Güneyisi, M. Bigonah (2022).</div>
               <div class="pub-journal">Applied Sciences</div>
             </article>
+
             <article class="pub-card">
-              <div class="pub-title">Performance evaluation on effects of all types of infill against the progressive
-                collapse of reinforced concrete frames</div>
+              <div class="pub-title">Performance evaluation on effects of all types of infill against the progressive collapse of reinforced concrete frames</div>
               <div class="pub-authors">M. Bigonah, H. Soltani, M. Zabihi-Samani, M.A. Shayanfar (2020).</div>
               <div class="pub-journal">Asian Journal of Civil Engineering</div>
             </article>
+
             <article class="pub-card">
-              <div class="pub-title">A porous polymeric–hydroxyapatite scaffold used for femur fractures treatment:
-                fabrication, analysis, and simulation</div>
+              <div class="pub-title">A porous polymeric–hydroxyapatite scaffold used for femur fractures treatment: fabrication, analysis, and simulation</div>
               <div class="pub-authors">S. Esmaeili, H. Akbari Aghdam, M. Motififard, M. Bigonah, et al. (2020).</div>
               <div class="pub-journal">European Journal of Orthopaedic Surgery &amp; Traumatology</div>
             </article>
+
             <article class="pub-card">
-              <div class="pub-title">Simulation and Evaluation of Corrosion Effects on the Reduction of Column Capacity
-              </div>
+              <div class="pub-title">Simulation and Evaluation of Corrosion Effects on the Reduction of Column Capacity</div>
               <div class="pub-authors">M.A. Shayanfar, D. Sobhani, M. Bigonah, et al. (2018).</div>
               <div class="pub-journal">Mapta Journal of Architecture, Urbanism and Civil Engineering</div>
             </article>
+
             <article class="pub-card">
-              <div class="pub-title">The effectiveness investigation of new retrofitting techniques for RC frame against
-                progressive collapse</div>
+              <div class="pub-title">The effectiveness investigation of new retrofitting techniques for RC frame against progressive collapse</div>
               <div class="pub-authors">M. Shayanfar, M. Bigonah, D. Sobhani, M. Zabihi-Samani (2018).</div>
               <div class="pub-journal">Civil Engineering Journal</div>
             </article>
           </div>
         </section>
+
         <section class="card fade-up" id="software">
           <h2>Software Skills</h2>
           <ul class="item-list">
             <li><strong>FEM:</strong> Ls_Dyna, Abaqus, Sap2000, Etabs, Safe, CsiBridge, Robot Structural Analysis.</li>
-            <li><strong>Earthquake:</strong> Opensees, Perform3D, SeismoSignal, SeismoMatch, SeismoStruct, SeismoBuild,
-              Opensees Navigator, NONLIN, ZEUS-NL.</li>
+            <li><strong>Earthquake:</strong> Opensees, Perform3D, SeismoSignal, SeismoMatch, SeismoStruct, SeismoBuild, Opensees Navigator, NONLIN, ZEUS-NL.</li>
             <li><strong>Programming Languages:</strong> TCL, Python, VBA Tools Programming.</li>
             <li><strong>Other:</strong> Arc GIS Pro, Easy Fit, FRP-Analysis, FRP Lamella.</li>
           </ul>
         </section>
+
         <section class="card fade-up" id="opportunities">
           <h2>Opportunities</h2>
-          <p>I am open to collaboration with motivated students and researchers on topics related to structural
-            analysis, progressive collapse, and risk assessment. If you are interested, feel free to contact me with
-            your CV and a brief description of your background and research interests.</p>
+          <p>I am open to collaboration with motivated students and researchers on topics related to structural analysis, progressive collapse, and risk assessment. If you are interested, feel free to contact me with your CV and a brief description of your background and research interests.</p>
         </section>
+
         <section class="card fade-up" id="education">
           <h2>Education</h2>
           <div class="two-col">
             <div>
               <h3>Ph.D. in Civil Engineering (Sep. 2022 – Present)</h3>
-              <p><strong>Key Lab of Smart Prevention and Mitigation of Civil Engineering Disasters, Harbin Institute of
-                  Technology</strong>, Harbin, China</p>
-              <p><strong>Dissertation Title:</strong> <em>Building Portfolio Earthquake Resilience Evaluation and
-                  Improvement of City in Cold Regions</em></p>
+              <p><strong>Key Lab of Smart Prevention and Mitigation of Civil Engineering Disasters, Harbin Institute of Technology</strong>, Harbin, China</p>
+              <p><strong>Dissertation Title:</strong> <em>Building Portfolio Earthquake Resilience Evaluation and Improvement of City in Cold Regions</em></p>
               <p><strong>Supervisor:</strong> Professor Shuang Li</p>
             </div>
             <div>
               <h3>Master of Science in Civil Engineering (Sep. 2014 – Jan. 2018)</h3>
-              <p><strong>Earthquake Engineering, School of Civil Engineering, Iran University of Science &amp;
-                  Technology</strong>, Tehran, Iran</p>
-              <p><strong>Dissertation Title:</strong> <em>New Techniques for Retrofitting RC Frames Against Progressive
-                  Collapse</em></p>
+              <p><strong>Earthquake Engineering, School of Civil Engineering, Iran University of Science &amp; Technology</strong>, Tehran, Iran</p>
+              <p><strong>Dissertation Title:</strong> <em>New Techniques for Retrofitting RC Frames Against Progressive Collapse</em></p>
               <p><strong>Supervisor:</strong> Professor Mohsen Ali Shayanfar</p>
             </div>
           </div>
         </section>
+
         <section class="card fade-up" id="news">
           <h2>News</h2>
           <ul class="item-list">
             <li><strong>2025</strong> — Completed the resilience assessment of Tangshan city, China.
-              <div class="pub-media"><img src="earthquake.png"
-                  alt="Earthquake themed visual for Tangshan resilience assessment"></div>
+              <div class="pub-media"><img src="earthquake.png" alt="Earthquake themed visual for Tangshan resilience assessment"></div>
               <div class="caption">A related GIF will be added soon.</div>
             </li>
           </ul>
         </section>
+
         <section class="card fade-up" id="languages">
           <h2>Languages</h2>
           <ul class="item-list">
@@ -754,28 +835,44 @@
             <li>Chinese</li>
           </ul>
         </section>
+
         <section class="card fade-up" id="awards">
           <h2>Grants &amp; Awards</h2>
           <ul class="item-list">
             <li><strong>CSC Scholarship</strong> — China Scholarship Council, awarded August 2022.</li>
           </ul>
         </section>
+
         <section class="card fade-up" id="contact">
           <h2>Contact</h2>
           <p>Email is the best way to reach me:</p>
           <p><strong>bigonah@stu.hit.edu.cn</strong></p>
         </section>
+
         <footer>© 2025 Mohammad Bigonah. Built with HTML &amp; GitHub Pages.</footer>
       </main>
     </div>
   </div>
+
   <script>
-    function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+    function toggleMenu() {
+      document.getElementById('navMenu').classList.toggle('active');
+    }
+
     const fadeEls = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } }); }, { threshold: 0.12 });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
     fadeEls.forEach(el => observer.observe(el));
+
     const pubCount = document.querySelectorAll('.pub-card').length;
     document.getElementById('pubCount').textContent = pubCount;
+
     document.querySelectorAll('.abstract-toggle').forEach((btn) => {
       btn.addEventListener('click', () => {
         const card = btn.closest('.pub-card');
@@ -790,5 +887,4 @@
     });
   </script>
 </body>
-
 </html>
